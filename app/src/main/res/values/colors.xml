@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="gray_white">#f1f1f1</color>
+
+    <color name="color_text_gray">#bcc2ce</color>
+    <color name="color_black_gray">#6e6e6e</color>
+    <color name="tab_menu_text_selected">#3052a2</color>
+    <color name="login_btn_press">#12327e</color>
+    <color name="tab_menu_text_unselected">#bcc2ce</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_white_shallow">#4dffffff</color>
+    <color name="login_edit_bg">#354772</color>
+    <color name="color_line">#f1f0f0</color>
+    <color name="color_black">#000000</color>
+    <color name="color_time">#ff5703</color>
+    <color name="live_textColor">#3c67ca</color>
+    <color name="color_orange_0">#ff8801</color>
+    <color name="color_orange_1">#cc6d02</color>
+    <color name="black_overlay">#66000000</color>
+</resources>

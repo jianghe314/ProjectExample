@@ -30,7 +30,7 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <declare-styleable name="Loading">
+    <declare-styleable name="LoadingDialog">
 
     </declare-styleable>
 

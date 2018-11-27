@@ -16,7 +16,7 @@ import com.example.reach.example.R;
 public class WaitDialog extends Dialog {
 
     private TextView tv;
-    private Loading loading;
+    private LoadingDialog loading;
     public WaitDialog(@NonNull Context context) {
         super(context, R.style.MyDialog);
     }

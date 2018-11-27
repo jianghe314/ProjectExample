@@ -2,9 +2,13 @@ package com.example.reach.example.activity;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.reach.example.R;
 import com.example.reach.example.adapter.FragmentAdapter;
@@ -26,7 +31,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,BottomNavigationView.OnNavigationItemSelectedListener {
 
 
     @BindView(R.id.view_pager)
@@ -59,9 +64,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return fragment;
         }
 
+        public static FragmentItem from(int itemId){
+            for (FragmentItem item : values()) {
+                if(item.menuId == itemId){
+                    return item;
+                }
+            }
+            return nav1;
+        }
 
-
-
+        public static void onDestory(){
+            for ( FragmentItem item : values()) {
+                item.fragment=null;
+            }
+        }
     }
 
     @Override
@@ -82,16 +98,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        final List<Fragment> fragmentList=new ArrayList<>();
-        fragmentList.add(new Fragment_Nav1());
-        fragmentList.add(new Fragment_Nav2());
-        fragmentList.add(new Fragment_Nav3());
-        FragmentAdapter fragmentAdapter=new FragmentAdapter(getSupportFragmentManager(),fragmentList);
-        viewPager.setAdapter(fragmentAdapter);
+        final BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return FragmentItem.values()[position].fragment();
+            }
+
+            @Override
+            public int getCount() {
+                return FragmentItem.values().length;
+            }
+        });
+        viewPager.setOffscreenPageLimit(2);
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
             @Override
             public void onPageSelected(int position) {
-                
+                bottomNavigationView.setSelectedItemId(FragmentItem.values()[position].menuId);
             }
         });
 
@@ -147,10 +172,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_send) {
 
+        }else {
+            viewPager.setCurrentItem(FragmentItem.from(item.getItemId()).ordinal(),false);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FragmentItem.onDestory();
     }
 }

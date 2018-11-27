@@ -14,7 +14,7 @@ import android.view.View;
  * Created by ZX on 2018/11/19
  * 正在加载UI
  */
-public class Loading extends View {
+public class LoadingDialog extends View {
 
     private Paint mpaint;
     private Context context;
@@ -24,15 +24,15 @@ public class Loading extends View {
     private MyThread myThread;
 
 
-    public Loading(@NonNull Context context) {
+    public LoadingDialog(@NonNull Context context) {
         this(context,null);
     }
 
-    public Loading(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LoadingDialog(@NonNull Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public Loading(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LoadingDialog(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context=context;
         initPaint();
@@ -57,8 +57,6 @@ public class Loading extends View {
         canvas.drawLine(0,-30,0,30,mpaint);
         canvas.drawLine(20,-30,20,30,mpaint);
         canvas.drawLine(40,-30,40,30,mpaint);
-
-
 
         myThread=new MyThread().getInstance();
         myThread.run();
@@ -114,6 +112,5 @@ public class Loading extends View {
         if(null!=myThread){
             myThread=null;
         }
-
     }
 }

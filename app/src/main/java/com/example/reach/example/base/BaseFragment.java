@@ -49,10 +49,20 @@ public abstract class BaseFragment extends Fragment {
     //此方法会在onCreate()方法之前调用一次，当视图切换到当前fragment时，还会调用一次
     //相应的getgetUserVisibleHint()先为false,然后为true
     //第一次加载时，先调用lazyLoadData()方法，再调用initView()方法
+
+    /**
+     * 调用顺序
+     * lazyLoadData()
+     * onCreate()
+     * onCreateView()
+     * onViewCreated()
+     * 当再次回到这个界面时还会调用lazyLoadData()
+     */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser&&!isLoad){
+            isLoad=true;
             lazyLoadData();
         }
     }

@@ -16,11 +16,11 @@ public class Fragment_Nav3 extends BaseFragment {
 
     @Override
     protected void initView() {
-        mLog.e("Fragment_Nav3","-->3View");
+
     }
 
     @Override
     protected void lazyLoadData() {
-        mLog.e("Fragment_Nav3","-->3");
+
     }
 }

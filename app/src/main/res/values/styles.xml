@@ -34,7 +34,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="Banner">
+    <declare-styleable name="RecyclerViewBanner">
 
     </declare-styleable>
 

@@ -4,6 +4,7 @@
     android:layout_height="100dp">
 
     <ImageView
+        android:focusable="true"
         android:id="@+id/banner_iv"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"

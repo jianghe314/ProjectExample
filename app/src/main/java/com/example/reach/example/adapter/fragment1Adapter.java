@@ -1,6 +1,7 @@
 package com.example.reach.example.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.reach.example.R;
+import com.example.reach.example.activity.ExampleActivity;
 
 import java.util.List;
 
@@ -36,6 +38,12 @@ public class fragment1Adapter extends RecyclerView.Adapter<fragment1Adapter.nav1
     public void onBindViewHolder(@NonNull nav1Holder holder, int position) {
         String item=data.get(position);
         holder.bindView(item);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context,ExampleActivity.class));
+            }
+        });
     }
 
     @Override

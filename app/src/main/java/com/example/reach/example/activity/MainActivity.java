@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -20,6 +21,9 @@ import com.example.reach.example.base.BaseFragment;
 import com.example.reach.example.fragment.Fragment_Nav1;
 import com.example.reach.example.fragment.Fragment_Nav2;
 import com.example.reach.example.fragment.Fragment_Nav3;
+import com.example.reach.example.utils.mLog;
+
+import java.io.UnsupportedEncodingException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //boilerplate 
+        //boilerplate
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -114,6 +118,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 bottomNavigationView.setSelectedItemId(FragmentItem.values()[position].menuId);
             }
         });
+        String str="";
+        byte[] bytes=str.getBytes();
+        for (byte b:bytes) {
+            Log.e("BYTE","-->"+b);
+        }
+        String newStr= null;
+        try {
+            newStr = new String(bytes,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        mLog.e("BYTE","--->>"+newStr);
 
     }
 

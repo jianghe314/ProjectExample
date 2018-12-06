@@ -9,12 +9,40 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <ImageView
+                    android:scaleType="fitCenter"
+                    android:id="@+id/fragment3_iv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/fragment_vi2"
+                    android:src="@drawable/beatui"
+                    android:scaleType="fitCenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <SeekBar
+                android:id="@+id/fragment_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
 
 
 

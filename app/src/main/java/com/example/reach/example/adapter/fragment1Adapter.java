@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.reach.example.R;
-import com.example.reach.example.activity.ExampleActivity;
+import com.example.reach.example.activity.PhotoDealActivity;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class fragment1Adapter extends RecyclerView.Adapter<fragment1Adapter.nav1
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context,ExampleActivity.class));
+                context.startActivity(new Intent(context,PhotoDealActivity.class));
             }
         });
     }

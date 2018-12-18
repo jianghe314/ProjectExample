@@ -96,8 +96,7 @@ public class Fragment_Nav1 extends BaseFragment {
 
     @Override
     protected void initData() {
-
-        for (int i = 0; i <=20 ; i++) {
+        for (int i = 0; i < 20; i++) {
             data.add("这是第"+i+"条数据");
         }
         adapter.notifyDataSetChanged();

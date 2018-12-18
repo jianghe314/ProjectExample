@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //不适用默认图标变色
         //bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-
+        //加载，，验证，，，准备，，，解析，，，初始化，，，，使用，，，卸载
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
         mLog.e("BYTE","--->>"+newStr);
 
     }
